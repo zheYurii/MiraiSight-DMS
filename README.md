@@ -18,6 +18,7 @@
 [**O projekcie**](#-o-projekcie) •
 [**Kluczowe funkcjonalności**](#-kluczowe-funkcjonalności) •
 [**Architektura systemu**](#️-architektura-systemu) •
+[**Podział modułów i struktura projektu**](#-podział-modułów-i-struktura-projektu) •
 
 </div>
 
@@ -76,6 +77,26 @@ flowchart LR
 (Haptyka fotela)"]
     end
 ```
+
+---
+
+## 📂 Podział modułów i struktura projektu
+
+```text
+miraisight-dms/
+├── docs/                  # Diagramy architektury, protokół komunikacji i scenariusze testowe
+├── firmware/              # Kod C/C++ dla mikrokontrolera Arduino (OLED/LCD I2C, brzęczyk, silnik)
+├── src/                   # Główna aplikacja w języku Python
+│   ├── __init__.py
+│   ├── main.py            # Punkt wejścia aplikacji i pętla główna
+│   ├── config.py          # Konfiguracja progów czasowych i parametrów portu szeregowego
+│   ├── ai_detector.py     # Moduł wizyjny OpenCV + MediaPipe Face Landmarker
+│   ├── state_machine.py   # Logika stanów (CZUWANIE, OSTRZEŻENIE, BRAK TWARZY/BRAK OCENY)
+│   └── serial_comm.py     # Moduł komunikacji szeregowej (pyserial)
+├── tests/                 # Testy jednostkowe i integracyjne
+├── .gitignore
+├── requirements.txt
+└── README.md
 
 ---
 
