@@ -51,6 +51,7 @@ htmlcov/
 *.o
 
 *.task
+!models/face_landmarker.task
 *.tflite
 *.onnx
 *.pt
