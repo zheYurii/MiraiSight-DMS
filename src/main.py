@@ -9,6 +9,7 @@ from src.config import (
     MODEL_PATH,
     SERIAL_BAUDRATE,
     SERIAL_PORT,
+    SERIAL_STARTUP_DELAY,
     SERIAL_TIMEOUT,
 )
 from src.serial_comm import SerialCommunicator
@@ -25,7 +26,10 @@ def run() -> None:
         drowsiness_time_threshold=DROWSINESS_TIME_THRESHOLD
     )
     communicator = SerialCommunicator(
-        port=SERIAL_PORT, baudrate=SERIAL_BAUDRATE, timeout=SERIAL_TIMEOUT
+        port=SERIAL_PORT,
+        baudrate=SERIAL_BAUDRATE,
+        timeout=SERIAL_TIMEOUT,
+        startup_delay=SERIAL_STARTUP_DELAY,
     )
 
     cap = cv2.VideoCapture(CAMERA_INDEX)
